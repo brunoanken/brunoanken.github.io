@@ -4,12 +4,11 @@ interface Props {
 }
 
 const { date } = Astro.props;
-const locale = navigator.language;
 ---
 
 <time datetime={date.toISOString()}>
 	{
-		date.toLocaleDateString(locale, {
+		date.toLocaleDateString("en-US", {
 			year: "numeric",
 			month: "long",
 			day: "numeric",

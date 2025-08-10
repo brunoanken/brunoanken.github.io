@@ -21,7 +21,7 @@ const pageNums = Array.from({ length: page.lastPage }, (_, i) => i + 1);
 const title =
 	page.currentPage === 1 ? "Blog" : `Blog - Page ${page.currentPage}`;
 const description =
-	"The undead musings of Lorenzo di Lume Nero—full stack developer, vampire, and former cooper. Coding tales, dark tech humor, and supernatural insights from Transylvania's bleeding-edge dev scene.";
+	"The blog of Bruno Anken, a full stack software engineer with over 7 years of experience.";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -35,7 +35,7 @@ const description =
 				To be honest I am still figuring out what my blogging will be
 				about.
 				<br />
-				Want to find it out with me?
+				Want to find out with me?
 			</p>
 		</header>
 
@@ -52,11 +52,11 @@ const description =
 			{
 				page.lastPage > 1 && (
 					<div class="flex justify-center my-20">
-						<nav class="mx-auto inline-flex text-slate-700 dark:text-slate-400 rounded-lg -space-x-px">
+						<nav class="mx-auto inline-flex text-stone-700 dark:text-stone-400 rounded-lg -space-x-px">
 							{page.url.prev && (
 								<a
 									href={page.url.prev}
-									class="inline-flex items-center justify-center w-10 h-10 ring-1 ring-inset ring-slate-300 dark:ring-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700"
+									class="inline-flex items-center justify-center w-10 h-10 ring-1 ring-inset ring-stone-300 dark:ring-stone-600 hover:bg-stone-100 dark:hover:bg-stone-700"
 								>
 									<Icon name="heroicons:chevron-left-16-solid" />
 								</a>
@@ -69,7 +69,7 @@ const description =
 								) : (
 									<a
 										href={`${num === 1 ? "/blog" : "/blog/" + num}`}
-										class="inline-flex items-center justify-center w-10 h-10 ring-1 ring-inset ring-slate-300 dark:ring-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700"
+										class="inline-flex items-center justify-center w-10 h-10 ring-1 ring-inset ring-stone-300 dark:ring-stone-600 hover:bg-stone-100 dark:hover:bg-stone-700"
 									>
 										{num}
 									</a>
@@ -78,7 +78,7 @@ const description =
 							{page.url.next && (
 								<a
 									href={page.url.next}
-									class="inline-flex items-center justify-center w-10 h-10 ring-1 ring-inset ring-slate-300 dark:ring-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700"
+									class="inline-flex items-center justify-center w-10 h-10 ring-1 ring-inset ring-stone-300 dark:ring-stone-600 hover:bg-stone-100 dark:hover:bg-stone-700"
 								>
 									<Icon name="heroicons:chevron-right-16-solid" />
 								</a>

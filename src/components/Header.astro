@@ -1,14 +1,14 @@
 ---
-import { Icon } from "astro-icon/components"
-import LightDarkToggle from "./LightDarkToggle.astro"
+import { Icon } from "astro-icon/components";
+import LightDarkToggle from "./LightDarkToggle.astro";
 
-const currentPath = Astro.url.pathname
+const currentPath = Astro.url.pathname;
 
 const navItems = [
 	{ href: "/", text: "Home", active: currentPath === "/" },
 	{ href: "/blog", text: "Blog", active: currentPath.startsWith("/blog") },
 	{ href: "/about", text: "About", active: currentPath.startsWith("/about") },
-]
+];
 ---
 
 <header>
@@ -18,7 +18,7 @@ const navItems = [
 	>
 		<div
 			class="bg-white w-full md:w-2xl mx-auto flex h-12 items-center justify-between
-			ring-1 ring-slate-300 mt-10 px-4 rounded-lg shadow dark:bg-slate-800 dark:ring-white/10 dark:text-slate-200"
+			ring-1 ring-stone-300 mt-10 px-4 rounded-lg shadow-md dark:bg-stone-800 dark:ring-white/10 dark:text-stone-200"
 		>
 			<a href="/" class="font-headings font-black text-3xl">Bruno Anken</a
 			>
@@ -31,11 +31,11 @@ const navItems = [
 								<li>
 									<a
 										href={item.href}
-										class={`relative flex items-center h-full hover:text-primary-500 transition ${item.active ? "text-primary-500" : ""}`}
+										class={`relative flex items-center h-full hover:text-primary-600 dark:hover:text-primary-300 transition ${item.active ? "dark:text-primary-300 text-primary-600" : ""}`}
 									>
 										{item.text}
 										{item.active && (
-											<span class="absolute inset-x-0 -bottom-px h-px bg-primary-500" />
+											<span class="absolute inset-x-0 -bottom-px h-px bg-primary-600 dark:bg-primary-300" />
 										)}
 									</a>
 								</li>
@@ -70,7 +70,7 @@ const navItems = [
 
 	<div
 		data-mobile-nav-element
-		class="hidden fixed z-60 inset-x-4 top-8 p-6 bg-white dark:bg-slate-800 dark:ring-white/10 dark:text-slate-200 shadow-md rounded-2xl transition starting:opacity-0 starting:scale-85 starting:-translate-y-8"
+		class="hidden fixed z-60 inset-x-4 top-8 p-6 bg-white dark:bg-stone-800 dark:ring-white/10 dark:text-stone-200 shadow-md rounded-2xl transition starting:opacity-0 starting:scale-85 starting:-translate-y-8"
 	>
 		<div class="flex justify-end">
 			<button data-close-mobile-nav aria-label="Close main navigation">
@@ -78,12 +78,12 @@ const navItems = [
 			</button>
 		</div>
 		<nav>
-			<ul class="divide-y divide-slate-200 dark:divide-slate-600">
+			<ul class="divide-y divide-stone-200 dark:divide-stone-600">
 				{
 					navItems.map((item) => (
 						<li>
 							<a
-								class={`block py-3 ${item.active ? "text-primary-500" : ""}`}
+								class={`block py-3 ${item.active ? "text-primary-600" : ""}`}
 								href={item.href}
 							>
 								{item.text}
@@ -101,17 +101,17 @@ const navItems = [
 		/*
 		 * Hide and show navigation on scroll
 		 */
-		const body = document.body
-		const scrollUp = "scroll-up"
-		const scrollDown = "scroll-down"
-		let lastScroll = 0
-		const scrollThreshold = 50
+		const body = document.body;
+		const scrollUp = "scroll-up";
+		const scrollDown = "scroll-down";
+		let lastScroll = 0;
+		const scrollThreshold = 50;
 
 		window.addEventListener("scroll", () => {
-			const currentScroll = window.scrollY
+			const currentScroll = window.scrollY;
 			if (currentScroll <= 0) {
-				body.classList.remove(scrollUp)
-				return
+				body.classList.remove(scrollUp);
+				return;
 			}
 
 			// Only apply changes if the difference in scroll position exceeds the threshold
@@ -121,68 +121,68 @@ const navItems = [
 					!body.classList.contains(scrollDown)
 				) {
 					// down
-					body.classList.remove(scrollUp)
-					body.classList.add(scrollDown)
+					body.classList.remove(scrollUp);
+					body.classList.add(scrollDown);
 				} else if (
 					currentScroll < lastScroll &&
 					body.classList.contains(scrollDown)
 				) {
 					// up
-					body.classList.remove(scrollDown)
-					body.classList.add(scrollUp)
+					body.classList.remove(scrollDown);
+					body.classList.add(scrollUp);
 				}
-				lastScroll = currentScroll
+				lastScroll = currentScroll;
 			}
-		})
+		});
 
 		/*
 		 * Mobile navigation
 		 */
 		const mobileNavElements = document.querySelectorAll(
-			"[data-mobile-nav-element]"
-		)
+			"[data-mobile-nav-element]",
+		);
 
 		// close mobile navigation
 		document.querySelectorAll("[data-close-mobile-nav]").forEach((btn) => {
 			btn.addEventListener("click", (e) => {
 				mobileNavElements.forEach((element) => {
-					element.classList.add("hidden")
-				})
-			})
-		})
+					element.classList.add("hidden");
+				});
+			});
+		});
 
 		// open mobile navigation
 		document.querySelectorAll("[data-open-mobile-nav]").forEach((btn) => {
 			btn.addEventListener("click", (e) => {
 				mobileNavElements.forEach((element) => {
-					element.classList.remove("hidden")
+					element.classList.remove("hidden");
 					element.classList.add(
 						"opacity-100",
 						"block",
 						"scale-100",
-						"translate-y-0"
-					)
-				})
-			})
-		})
+						"translate-y-0",
+					);
+				});
+			});
+		});
 
 		// close mobile navigation on window resize
-		const styles = getComputedStyle(document.documentElement)
-		const breakpointMd = styles.getPropertyValue("--breakpoint-md")
-		const breakpointMdInRem = parseFloat(breakpointMd.replace("rem", ""))
-		const rootFontSizeInPx = parseFloat(styles.fontSize)
-		const breakpointMdInPx = breakpointMdInRem * rootFontSizeInPx
+		const styles = getComputedStyle(document.documentElement);
+		const breakpointMd = styles.getPropertyValue("--breakpoint-md");
+		const breakpointMdInRem = parseFloat(breakpointMd.replace("rem", ""));
+		const rootFontSizeInPx = parseFloat(styles.fontSize);
+		const breakpointMdInPx = breakpointMdInRem * rootFontSizeInPx;
 
 		window.addEventListener("resize", () => {
 			if (window.innerWidth > breakpointMdInPx) {
 				mobileNavElements.forEach((element) => {
-					element.classList.add("hidden")
-				})
+					element.classList.add("hidden");
+				});
 			}
-		})
+		});
 	}
-	initNavigation()
+	initNavigation();
 	document.addEventListener("astro:page-load", () => {
-		initNavigation()
-	})
+		initNavigation();
+	});
 </script>

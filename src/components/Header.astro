@@ -14,24 +14,25 @@ const navItems = [
 <header>
 	<div
 		id="main-header"
-		class="fixed w-full z-50 transition duration-500 px-4 sm:px-10"
+		class="fixed w-full z-50 transition duration-500 px-fluid-xs"
 	>
 		<div
 			class="bg-white w-full md:w-2xl mx-auto flex h-12 items-center justify-between
-			ring-1 ring-stone-300 mt-10 px-4 rounded-lg shadow-md dark:bg-stone-800 dark:ring-white/10 dark:text-stone-200"
+			ring-1 ring-stone-300 mt-10 px-fluid-xs rounded-lg shadow-md dark:bg-stone-700 dark:ring-white/10 dark:text-stone-200"
 		>
-			<a href="/" class="font-headings font-black text-3xl">Bruno Anken</a
+			<a href="/" class="font-headings font-black text-fluid-2"
+				>Bruno Anken</a
 			>
 
 			<div class="flex items-center h-full">
 				<nav class="hidden md:block h-full">
-					<ul class="flex space-x-6 h-full">
+					<ul class="flex gap-fluid-xs h-full">
 						{
 							navItems.map((item) => (
 								<li>
 									<a
 										href={item.href}
-										class={`relative flex items-center h-full hover:text-primary-600 dark:hover:text-primary-300 transition ${item.active ? "dark:text-primary-300 text-primary-600" : ""}`}
+										class={`relative flex items-center h-full text-fluid--1 hover:text-primary-600 dark:hover:text-primary-300 transition ${item.active ? "dark:text-primary-300 text-primary-600" : ""}`}
 									>
 										{item.text}
 										{item.active && (
@@ -43,15 +44,15 @@ const navItems = [
 						}
 					</ul>
 				</nav>
-				<div class="ml-8">
+				<div class="">
 					<button
 						data-open-mobile-nav
-						class="md:hidden flex-inline items-center justify-center w-10 h-10"
+						class="md:hidden flex-inline items-center justify-center"
 						aria-label="Open main navigation"
 					>
 						<Icon
 							name="heroicons:bars-2-solid"
-							class="inline-block w-5 h-5"
+							class="inline-block size-fluid-s"
 						/>
 					</button>
 					<LightDarkToggle />

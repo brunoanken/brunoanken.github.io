@@ -4,14 +4,17 @@ import { Icon } from "astro-icon/components";
 
 <button
 	data-light-dark-toggle
-	class="flex-inline items-center justify-center w-8 h-8 transition-all hover:text-primary-600 dark:hover:text-primary-300 hover:cursor-pointer"
+	class="flex-inline items-center justify-center transition-all hover:text-primary-600 dark:hover:text-primary-300 hover:cursor-pointer ml-fluid-xs"
 	aria-label="Toggle light/dark theme"
 >
 	<Icon
 		name="heroicons:moon-solid"
-		class="hidden dark:inline-block w-5 h-5"
+		class="hidden dark:inline-block size-fluid-s"
 	/>
-	<Icon name="heroicons:sun-solid" class="inline-block dark:hidden w-5 h-5" />
+	<Icon
+		name="heroicons:sun-solid"
+		class="inline-block dark:hidden size-fluid-s"
+	/>
 </button>
 <script>
 	function initLightDarkToggle() {

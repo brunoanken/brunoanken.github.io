@@ -1,11 +1,9 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
-import { Image } from "astro:assets"
-import heroImageDark from "../images/about-me-dark.jpg"
-import heroImageLight from "../images/about-me-light.jpg"
-import FeaturedArticles from "../components/articles/FeaturedArticles.astro"
-import Projects from "../components/Projects.astro"
-import NewsletterForm from "../components/NewsletterForm.astro"
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import heroImage from "../images/about-me.jpeg";
+import FeaturedArticles from "../components/articles/FeaturedArticles.astro";
+import Projects from "../components/Projects.astro";
 ---
 
 <BaseLayout>
@@ -16,18 +14,25 @@ import NewsletterForm from "../components/NewsletterForm.astro"
 				<h1
 					class="text-3xl sm:text-5xl font-bold tracking-tight text-balance"
 				>
-					Where code, UX and products combine.
+					Where product, code and UX combine.
 				</h1>
 				<div class="mt-8 leading-8">
 					<p>
 						I'm Bruno Anken Zaninello, a full stack software
-						engineer who loves UX and building products.
+						engineer who's passionate about building products,
+						discovering new music, football and cats.
 					</p>
 				</div>
 			</div>
 
 			<div class="order-first lg:order-last flex-shrink-0 mb-8">
 				<Image
+					src={heroImage}
+					alt="Code. Blood. Mild workplace horror."
+					class="block rounded-full size-20 lg:size-[350px] object-cover ring-1 ring-slate-400/30 shadow"
+				/>
+				<!-- Example to switch images when switching themes -->
+				<!-- <Image
 					src={heroImageLight}
 					alt="Code. Blood. Mild workplace horror."
 					class="block dark:hidden rounded-full size-20 lg:size-[350px] object-cover ring-1 ring-slate-400/30 shadow"
@@ -36,7 +41,7 @@ import NewsletterForm from "../components/NewsletterForm.astro"
 					src={heroImageDark}
 					alt="Code. Blood. Mild workplace horror."
 					class="hidden dark:block rounded-full size-20 lg:size-[350px] object-cover ring-1 ring-slate-400/30 shadow"
-				/>
+				/> -->
 			</div>
 		</div>
 	</div>
@@ -64,10 +69,5 @@ import NewsletterForm from "../components/NewsletterForm.astro"
 		<div class="mx-auto lg:max-w-5xl">
 			<Projects />
 		</div>
-	</div>
-
-	<!-- Newsletter -->
-	<div class="mx-auto lg:max-w-4xl my-16 sm:my-30">
-		<NewsletterForm />
 	</div>
 </BaseLayout>

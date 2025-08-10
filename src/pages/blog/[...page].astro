@@ -6,9 +6,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticleCard from "../../components/articles/ArticleCard.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const posts = (await getCollection("blog")).sort(
-		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-	);
+	const posts = (await getCollection("blog"))
+		.filter((post) => post.data.released === true)
+		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 	return paginate(posts, { pageSize: 5 });
 }) satisfies GetStaticPaths;
@@ -32,9 +32,10 @@ const description =
 			</h1>
 
 			<p>
-				Tech, blood, and the occasional full moon meltdown. Sink your
-				teeth into the articles below. They won’t bite (unless I wrote
-				them after feeding time).
+				To be honest I am still figuring out what my blogging will be
+				about.
+				<br />
+				Want to find it out with me?
 			</p>
 		</header>
 

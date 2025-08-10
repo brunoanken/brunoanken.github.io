@@ -1,10 +1,9 @@
 ---
-title: 'Automatically clearing flash messages in Phoenix LiveView '
+title: 'Automatically clearing flash messages in Phoenix LiveView'
 description: 'A simple and maintainable way to automatically clear flash messages in Phoenix LiveView.'
 pubDate: '2025-08-10'
 featured: true
 released: true
-# TODO: add a hero image?
 heroImage: '../../images/2025-08-09-auto-clearing-liveview-flash-messages.png'
 ---
 

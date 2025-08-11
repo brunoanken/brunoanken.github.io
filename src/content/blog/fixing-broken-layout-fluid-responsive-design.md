@@ -4,7 +4,8 @@ description: 'Using fluid responsive CSS variables to fix a broken layout and ge
 pubDate: '2025-08-11'
 featured: true
 released: true
-heroImage: '../../images/2025-08-10-fixing-broken-fluid-hero.png'
+heroImage: '../../images/water-flowing.jpg'
+heroImageDark: '../../images/dark-river.jpg'
 ---
 
 I started this blog using a template I found in Astro's website. I really liked it (no wonder I chose it), but the top header and navbar layout was broken on small screens.

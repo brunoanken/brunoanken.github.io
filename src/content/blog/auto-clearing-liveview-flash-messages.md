@@ -4,7 +4,8 @@ description: 'A simple and maintainable way to automatically clear flash message
 pubDate: '2025-08-10'
 featured: true
 released: true
-heroImage: '../../images/2025-08-09-auto-clearing-liveview-flash-messages.png'
+heroImage: '../../images/clear-sky-kite.jpg'
+heroImageDark: '../../images/moon-clear-night-sky.jpg'
 ---
 
 Phoenix LiveView is an awesome and elegant way to create web apps with a simple stack. Its generators are super capable and can get a lot done with simple commands, but one thing that has always bothered me is that flash messages don't disappear on their own after a few seconds.

@@ -15,13 +15,22 @@ const { post } = Astro.props;
 				<Image
 					src={post.data.heroImage}
 					alt={post.data.title}
-					class="object-cover w-full sm:w-48 sm:h-58"
+					class="object-cover w-full sm:w-48 sm:h-58 dark:hidden"
+				/>
+			)
+		}
+		{
+			post.data.heroImageDark && (
+				<Image
+					src={post.data.heroImageDark}
+					alt={post.data.title}
+					class="object-cover w-full sm:w-48 sm:h-58 dark:block hidden"
 				/>
 			)
 		}
 	</div>
 
-	<div class="relative py-4 sm:px-6 rounded-lg flex-1 px-4">
+	<div class="relative py-4 sm:px-6 rounded-lg flex-1">
 		<h2 class="text-lg sm:text-xl font-semibold my-1">
 			<a href={`/blog/${post.id}`}>
 				<div class="absolute inset-0"></div>

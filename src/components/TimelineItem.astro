@@ -30,11 +30,7 @@ const { date, role, company, location } = Astro.props;
 				<span>{location}</span>
 			</div>
 
-			<ul
-				class="list-disc
-				marker:text-primary-600
-				dark:marker:text-primary-300"
-			>
+			<ul class="space-y-4">
 				<slot />
 			</ul>
 		</div>

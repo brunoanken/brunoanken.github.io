@@ -1,74 +1,145 @@
 ---
 import { Icon } from "astro-icon/components";
+import TimelineItem from "./TimelineItem.astro";
+
 const timeline = [
 	{
-		date: "March 2025 – Present",
-		role: "Senior Software Engineer",
-		company: "Neo Health",
-		location: "Remote",
 		description: "Founding engineer.",
-	},
-	{
-		date: "February 2025 – March 2025",
-		role: "Software Engineer",
-		company: "TRM Labs",
-		location: "Remote",
-		description: "",
-	},
-	{
-		date: "March 2021 - December 2024",
-		role: "Senior Software Engineer",
-		company: "Route",
-		location: "Remote",
-		description: "",
-	},
-	{
-		date: "September 2020 - March 2021",
-		role: "Software Engineer",
-		company: "SWAP",
-		location: "Remote",
-		description: "Microfrontends. Lots of microfrontends.",
-	},
-	{
-		date: "December 2018 - July 2020",
-		role: "Software Engineer",
-		company: "Medpass",
-		location: "São Paulo, Brazil",
-		description: "",
-	},
-	{
-		date: "March 2018 – December 2018",
-		role: "Web Developer",
-		company: "Acesso (now Bankly)",
-		location: "São Paulo, Brazil",
-		description: "",
 	},
 ];
 ---
 
 <div class="space-y-16">
-	{
-		timeline.map((item) => (
-			<div class="grid grid-cols-1 md:grid-cols-4">
-				<div class="text-stone-600 dark:text-stone-200 text-sm">
-					{item.date}
-				</div>
-				<div class="col-span-3 flex flex-col gap-y-3">
-					<div class="font-medium text-primary-600 dark:text-primary-300">
-						{item.role}
-						<span class="font-normal">- {item.company}</span>
-					</div>
-					<div class="flex items-center space-x-1">
-						<Icon
-							name="heroicons:map-pin"
-							aria-label="Location"
-							role="img"
-						/>
-						<span>{item.location}</span>
-					</div>
-					{item.description && <div>{item.description}</div>}
-				</div>
-			</div>
-		))
-	}
+	<TimelineItem
+		date="March 2025 – Present"
+		role="Senior Software Engineer"
+		company="Neo Health"
+		location="Remote"
+	>
+		<li>
+			Led end-to-end development of user onboarding system encompassing
+			account creation, authentication, questionnaire, assessment, and
+			billing integration, serving Neo’s first alpha users while creating
+			from scratch a component library/design system for the app, speeding
+			up the engineering team when creating UI features
+		</li>
+		<li>
+			Proactively drove improvement in user experience by redesigning core
+			interaction patterns: standardized responsive layouts, enhanced form
+			accessibility, optimized messaging interfaces, and developed
+			reusable component library
+		</li>
+		<li>
+			Reduced user acquisition friction through implementation of OAuth
+			2.0 social authentication (Google/Apple), decreasing average signup
+			time from 2 minutes to less than 20 seconds, creating event driven
+			Python AWS Lambda functions to increase robustness and consistency
+			of users data ingestion
+		</li>
+		<li>
+			Decreased app size bundle on iOS from 259 Mb to 44Mb (83.12%
+			reduction) by moving image assets to a CDN
+		</li>
+	</TimelineItem>
+	<TimelineItem
+		date="February 2025 – March 2025"
+		role="Software Engineer"
+		company="TRM Labs"
+		location="Remote"
+	>
+		<li>
+			Designed and initiated implementation of advanced data obfuscation
+			mechanisms in servers (NodeJS, FeathersJS) and databases (Postgres)
+			to meet enhanced security requirements for high-sensitivity
+			customers
+		</li>
+	</TimelineItem>
+	<TimelineItem
+		date="March 2021 - December 2024"
+		role="Senior Software Engineer"
+		company="Route"
+		location="Remote"
+	>
+		<li>
+			Spearheaded the transition to a micro frontends architecture (React,
+			Custom Elements) for the company’s legacy administrative dashboard
+			for merchants, eventually assuming the role of technical leader,
+			lowering the time needed to ship new features to users
+		</li>
+		<li>
+			Led the design and implementation of key features, including Stripe
+			payments integrations, app-wide language localization, per brand
+			public web page appearance customization and a new onboarding
+			experience using React, Redux, Jotai, Tailwind and Styled
+			Components, implementing automated tests with Jest, Vitest, React
+			Testing Library, Cypress and using TDD techniques
+		</li>
+		<li>
+			Developed Backend-for-Frontends using NodeJS and Go, increasing the
+			team’s autonomy, ensuring application security and honoring
+			customers plans (SAAS) constraints
+		</li>
+		<li>
+			Implemented RESTful services in Go, connected to PostgreSQL
+			databases
+		</li>
+		<li>
+			Ensured a user-centric approach by prioritizing intuitive UX and
+			thoroughly identifying and addressing edge cases for reliable
+			performance and experience and discussing pros, cons and alternative
+			paths with the product and design teams
+		</li>
+	</TimelineItem>
+	<TimelineItem
+		date="September 2020 - March 2021"
+		role="Software Engineer"
+		company="SWAP"
+		location="Remote"
+	>
+		<li>
+			Architected and implemented a card transactions webhook system
+			(Elixir, Phoenix, Postgres, Oban), enabling near real-time credit
+			card transaction notifications for end users
+		</li>
+		<li>
+			Built REST and GraphQL APIs with Phoenix, backed by PostgreSQL, to
+			integrate with a partner Ledger and also to serve a white-label
+			mobile app
+		</li>
+	</TimelineItem>
+	<TimelineItem
+		date="December 2018 - July 2020"
+		role="Software Engineer"
+		company="Medpass"
+		location="São Paulo, Brazil"
+	>
+		<li>
+			Designed and implemented robust REST APIs with Go and Python to
+			power the aforementioned applications, storing data in DynamoDB and
+			MySQL and ensuring reliability and scalability
+		</li>
+		<li>
+			Built a consumer-facing mobile app (React Native), a web app
+			enabling chat and video calls with healthcare professionals (VueJS
+			and Nuxt), and a dashboard web app for managing user interactions
+			(React)
+		</li>
+	</TimelineItem>
+	<TimelineItem
+		date="March 2018 – December 2018"
+		role="Sotware Engineer"
+		company="Acesso (now Bankly)"
+		location="São Paulo, Brazil"
+	>
+		<li>
+			Developed the entire front-end (React) for a new feature enabling
+			users to purchase prepaid cards using a credit card, ensuring a
+			seamless user experience
+		</li>
+		<li>
+			Redesigned the core user dashboard (React), introducing new
+			components and styles to enhance functionality and align with the
+			company's design system
+		</li>
+	</TimelineItem>
 </div>
